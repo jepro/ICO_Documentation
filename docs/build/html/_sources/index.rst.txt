@@ -2,12 +2,6 @@
 INFINITY TRADE COIN ICO Documentation
 =====================================
 
-Guide
-^^^^^
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
 
 Tools for writing and deploying smart contracts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -77,6 +71,7 @@ Smart Contract Example
 .. code-block:: javascript
 
 	address public minter;
+
 It's a 160 bit variable ideal for storing addresses on the Ethereum network.
 
 
@@ -129,6 +124,14 @@ Smart contracts must pay gas for their computations on the Ethereum network. How
 
 
 
+Guide
+==================
+.. toctree::
+   :maxdepth: 1
+
+   scuffold
+
+
 
 
 
@@ -138,3 +141,5 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+
