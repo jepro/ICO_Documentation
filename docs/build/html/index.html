@@ -1,0 +1,214 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>INFINITY TRADE COIN ICO Documentation &#8212; ICO_Documentation 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="infinity-trade-coin-ico-documentation">
+<h1>INFINITY TRADE COIN ICO Documentation<a class="headerlink" href="#infinity-trade-coin-ico-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="guide">
+<h2>Guide<a class="headerlink" href="#guide" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="tools-for-writing-and-deploying-smart-contracts">
+<h2>Tools for writing and deploying smart contracts<a class="headerlink" href="#tools-for-writing-and-deploying-smart-contracts" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://infura.io">Infura</a> – scalable blockchain infrastructure. Don’t run a full Ethereum node, let them handle the infrastructure layer</p>
+<p><a class="reference external" href="https://github.com/ethereum/mist">Mist Browser</a> – browse the dApp. Separate browser to browse dApps and interact with them.</p>
+<p><a class="reference external" href="https://truffleframework.com">Truffle Framework</a> – The Ethereum Development framework. It has built-in smart contract compilation, linking, deployment, and binary management.</p>
+<p><a class="reference external" href="https://metamask.io">Metamask</a> – It allows to run Ethereum dApps right in the browser without running a full Ethereum node. It is a browser plugin that allows users to make Ethereum transactions through regular websites.</p>
+<p><a class="reference external" href="https://remix.ethereum.org/#optimize=false&amp;version=soljson-v0.4.24+commit.e67f0147.js">Remix</a> – Web IDE to write, deploy and run Solidity smart contracts</p>
+<p><a class="reference external" href="https://ethfiddle.com/#/">ETHFiddle</a> Share you Solidity Script</p>
+</div>
+<div class="section" id="external-documentation">
+<h2>External Documentation<a class="headerlink" href="#external-documentation" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://solidity.readthedocs.io/en/develop/introduction-to-smart-contracts.html">Solidity Documentation</a> - Solidity Documentation</p>
+<p><a class="reference external" href="https://www.ethereum.org/token">Create your own crypto</a> - Create your own crypto (official)</p>
+<p><a class="reference external" href="https://ico.readthedocs.io/en/latest/?badge=latest">ICO Smart Contact Framework</a> - ICO Smart Contact Framework</p>
+</div>
+<div class="section" id="smart-contract-example">
+<h2>Smart Contract Example<a class="headerlink" href="#smart-contract-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.0</span><span class="p">;</span>
+
+     <span class="nx">contract</span> <span class="nx">Coin</span> <span class="p">{</span>
+      <span class="c1">// The keyword &quot;public&quot; makes those variables</span>
+      <span class="c1">// readable from outside.</span>
+      <span class="nx">address</span> <span class="kr">public</span> <span class="nx">minter</span><span class="p">;</span>
+      <span class="nx">mapping</span> <span class="p">(</span><span class="nx">address</span> <span class="o">=&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">gt</span><span class="p">;</span> <span class="nx">uint</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">balances</span><span class="p">;</span>
+
+      <span class="c1">// Events allow light clients to react on</span>
+      <span class="c1">// changes efficiently.</span>
+      <span class="nx">event</span> <span class="nx">Sent</span><span class="p">(</span><span class="nx">address</span> <span class="nx">from</span><span class="p">,</span> <span class="nx">address</span> <span class="nx">to</span><span class="p">,</span> <span class="nx">uint</span> <span class="nx">amount</span><span class="p">);</span>
+
+      <span class="c1">// This is the constructor whose code is</span>
+      <span class="c1">// run only when the contract is created.</span>
+      <span class="kd">function</span> <span class="nx">Coin</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">minter</span> <span class="o">=</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="kd">function</span> <span class="nx">mint</span><span class="p">(</span><span class="nx">address</span> <span class="nx">receiver</span><span class="p">,</span> <span class="nx">uint</span> <span class="nx">amount</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span> <span class="o">!=</span> <span class="nx">minter</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+      <span class="nx">balances</span><span class="p">[</span><span class="nx">receiver</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">amount</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="kd">function</span> <span class="nx">send</span><span class="p">(</span><span class="nx">address</span> <span class="nx">receiver</span><span class="p">,</span> <span class="nx">uint</span> <span class="nx">amount</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">balances</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">]</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">lt</span><span class="p">;</span> <span class="nx">amount</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+      <span class="nx">balances</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">]</span> <span class="o">-=</span> <span class="nx">amount</span><span class="p">;</span>
+      <span class="nx">balances</span><span class="p">[</span><span class="nx">receiver</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">amount</span><span class="p">;</span>
+      <span class="nx">Sent</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">,</span> <span class="nx">receiver</span><span class="p">,</span> <span class="nx">amount</span><span class="p">);</span>
+      <span class="p">}</span>
+     <span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">address</span> <span class="kr">public</span> <span class="nx">minter</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>It’s a 160 bit variable ideal for storing addresses on the Ethereum network.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">mapping</span> <span class="p">(</span><span class="nx">address</span> <span class="o">=&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">gt</span><span class="p">;</span> <span class="nx">uint</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">balances</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Creates a mapping between address and unit type which stores the coin balance in each address</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Coin</span><span class="p">()</span> <span class="p">{</span>
+<span class="nx">minter</span> <span class="o">=</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Constructor function. Executed as soon as the contract is deployed. This sets the value of minter to the address which has deployed the contract. This ensures that only the owner of the contract can mint new coins and nobody else.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">mint</span><span class="p">(</span><span class="nx">address</span> <span class="nx">receiver</span><span class="p">,</span> <span class="nx">uint</span> <span class="nx">amount</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>fFunction sending coin value equal to amount to the receiver address.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">send</span><span class="p">(</span><span class="nx">address</span> <span class="nx">receiver</span><span class="p">,</span> <span class="nx">uint</span> <span class="nx">amount</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Function sending coins to the receiver’s address from the sender’s address</p>
+</div>
+<div class="section" id="deploying-smart-contract-in-ethereum-blockchain">
+<h2>Deploying smart contract in Ethereum blockchain<a class="headerlink" href="#deploying-smart-contract-in-ethereum-blockchain" title="Permalink to this headline">¶</a></h2>
+<p>Testnets simulate the Ethereum network and EVM. It enables developers to upload and interact with smart contracts without paying the cost of gas.</p>
+<p>Smart contracts must pay gas for their computations on the Ethereum network. However, testnets provide environments for developers to test their contracts without paying any money. Testnet gas is available for free from many public areas. es. <a class="reference external" href="http://faucet.ropsten.be:3001">ropsten</a></p>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">ICO_Documentation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Stefano Ballerini.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
