@@ -15,7 +15,7 @@ Tools for writing and deploying smart contracts
 
 `Remix <https://remix.ethereum.org/#optimize=false&version=soljson-v0.4.24+commit.e67f0147.js>`_ – Web IDE to write, deploy and run Solidity smart contracts
 
-`ETHFiddle <https://ethfiddle.com/#/>`_ Share you Solidity Script
+`ETHFiddle <https://ethfiddle.com/#/>`_  - Share you Solidity Script
 
 
 
@@ -130,16 +130,5 @@ Guide
    :maxdepth: 1
 
    scuffold
-
-
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
 

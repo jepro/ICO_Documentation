@@ -1,5 +1,5 @@
 #################
-Crypto Scuffold
+Cryptocurrency Scuffold
 #################
 
 
@@ -14,11 +14,9 @@ Code example
 	interface tokenRecipient { function receiveApproval(address _from, uint256 _value, address _token, bytes _extraData) external; }
 
 	contract TokenERC20 {
-	    // Public variables of the token
 	    string public name;
 	    string public symbol;
 	    uint8 public decimals = 18;
-	    // 18 decimals is the strongly suggested default, avoid changing it
 	    uint256 public totalSupply;
 
 	    // This creates an array with all balances
@@ -166,17 +164,30 @@ Code example
 	        emit Burn(_from, _value);
 	        return true;
 	    }
-
-	    /**
-	     * Initial Supply set up
-	     */
-	    function MyToken() public {
-	        balanceOf[msg.sender] = 21000000;
-	    }
 	}
 
 
-"* function MyToken *" has to have the same name as the "* contract MyToken *". This is a special, startup function that runs only once and once only when the contract is first uploaded to the network
+
+.. code-block:: javascript
+   :linenos:
+
+	function transfer(address _to, uint256 _value) public {
+        /* Check if sender has balance and for overflows */
+        require(balanceOf[msg.sender] >= _value && balanceOf[_to] + _value >= balanceOf[_to]);
+
+        /* Add and subtract new balances */
+        balanceOf[msg.sender] -= _value;
+        balanceOf[_to] += _value;
+    }
+    
+
+*function MyToken* has to have the same name as the *contract MyToken*. This is a special, startup function that runs only once and once only when the contract is first uploaded to the network    
+
+To stop a contract execution mid-execution you can either return or throw The former will cost less gas but it can be more headache as any changes you did to the contract so far will be kept. In the other hand, 'throw' will cancel all contract execution, revert any changes that transaction could have made and the sender will lose all Ether he sent for gas. But since the Wallet can detect that a contract will throw, it always shows an alert, therefore preventing any Ether to be spent at all.    
+
+
+
+
 
 
 
