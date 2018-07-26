@@ -28,6 +28,7 @@ Open Points
 * Are we geo-fencing? (excluding specific countries from participating — both US and Chinese investors)
 * are we allowing funds/institutional investors to invest or only individuals?
 * Are we 100% sure the token is not a security? do we have a official legal due diligence from ICO advisor?
+* How are performded security audit on the smart contract? 
 
 
 
@@ -141,6 +142,34 @@ Communication
 * Newsletter
 	
 	* Setup a newsletter on your website.		
+
+* Blog
+
+	* Need to have a clean, updated blog ideally with a history of posts already.
+
+* Twitter
+	
+	* have a clean updated Twitter account.
+
+* Advertising
+	
+	* In general, the teams that advertise look weaker.
+
+* Public relations
+	
+	* Press — Getting into both crypto publications + general news.
+	* Interviews — Q&A, speaking engagements, tech talks, etc.
+	* Events — Conferences, meetups, technical talks, dinners, online Q&A sessions, etc.
+	* Podcasts — Epicenter, Unchained, Ether Review, etc.
+
+* Bouties
+	
+	* Use `bounty0x <https://beta.bounty0x.io/bounties>`_ for bouties
+
+* Community Management
+	
+	* Need to have extra people on staff ready to answer questions. On all channels, all of the time.
+
 
 
 
