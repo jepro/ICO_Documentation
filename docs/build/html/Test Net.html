@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Test Net (Ropsten Network) &mdash; ICO_Documentation 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Cryptocurrency Scuffold" href="scuffold.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ICO_Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Solidity.html">Solidity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scuffold.html">Cryptocurrency Scuffold</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Test Net (Ropsten Network)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#to-start">To start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ethereum-address">Ethereum address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ether">Ether</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#solidity-contract">Solidity contract</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#deploy">Deploy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#register-the-contract">Register the contract</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-it-right-once-or-get-it-wrong-forever">Get it right once or get it wrong forever.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ICO_Documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Test Net (Ropsten Network)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Test Net.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="test-net-ropsten-network">
+<h1>Test Net (Ropsten Network)<a class="headerlink" href="#test-net-ropsten-network" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="to-start">
+<h2>To start<a class="headerlink" href="#to-start" title="Permalink to this headline">¶</a></h2>
+<p>We need 3 components:</p>
+<ul class="simple">
+<li>Ethereum Address (Ropsten Network)</li>
+<li>Some Ether (Ropsten Network)</li>
+<li>Solidity contract</li>
+</ul>
+<div class="section" id="ethereum-address">
+<h3>Ethereum address<a class="headerlink" href="#ethereum-address" title="Permalink to this headline">¶</a></h3>
+<p>Go to <a class="reference external" href="https://www.myetherwallet.com">MyEtherWallet</a> (MEW) and create an account.</p>
+<p>To get setup, click the right hand side corner, change the network to Ropsten (MyEtherWallet) → click the New Wallet →Enter a password you can remember → Download / Save your Keystore file in a safe space → Save your Private Key in a safe space.</p>
+<p>To view your wallet address, go to →View Wallet Info →Private Key → Enter the saved private key →Unlock your Wallet</p>
+</div>
+<div class="section" id="ether">
+<h3>Ether<a class="headerlink" href="#ether" title="Permalink to this headline">¶</a></h3>
+<p>As an example we will use the Ropsten Test network. But there are other testnet that can be used.
+To get some Ropsten Ethereum Just access <a class="reference external" href="https://faucet.bitfwd.xyz/">this faucet</a>  and put your ropsten address.</p>
+</div>
+<div class="section" id="solidity-contract">
+<h3>Solidity contract<a class="headerlink" href="#solidity-contract" title="Permalink to this headline">¶</a></h3>
+<p>As contract we can use the contract defined in <code class="docutils literal notranslate"><span class="pre">scuffold</span></code> page.</p>
+</div>
+</div>
+<div class="section" id="deploy">
+<h2>Deploy<a class="headerlink" href="#deploy" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Go to <a class="reference external" href="http://remix.ethereum.org/">Remix</a></li>
+<li>In the browser/ballot.sol, paste the code you just edited! If something red comes up, there is something wrong in the code.</li>
+<li>Now Under Compile →Details →Choose the Token you are creating</li>
+<li>Under ByteCode press the 📋 button to copy the ByteCode to your clipboard —( Into this section, what may appear are different things on the ByteCode. What you have to copy is the “object” ByteCode, adding a 0x in the beginning. So you will have 0xByteCode.)</li>
+<li>Go to MEW</li>
+<li>Navigate to the Contracts tab → Press Deploy Contract</li>
+<li>Paste your ByteCode into the ByteCode box. Your gas limit should automatically update</li>
+<li>Access your wallet by going into the Private Key → Enter your private key →Unlock your wallet</li>
+<li>Now press Sign Transaction →Deploy Transaction</li>
+<li>Click on the transaction tx or access <a class="reference external" href="https://ropsten.etherscan.io">etherscan</a>  to check if the contract went through.</li>
+</ul>
+<div class="section" id="register-the-contract">
+<h3>Register the contract<a class="headerlink" href="#register-the-contract" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>In the Overview Tab → Click on the Contract Address</li>
+<li>Go to the Contract Code Tab → Click Verify and Publish</li>
+</ul>
+</div>
+<div class="section" id="get-it-right-once-or-get-it-wrong-forever">
+<h3>Get it right once or get it wrong forever.<a class="headerlink" href="#get-it-right-once-or-get-it-wrong-forever" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Be sure that the contract address field corresponds to the contract address that you have just deployed. Remember contract address is different to the MEW address you created so make sure not to get them confused</li>
+<li>The contract name has to match the one in the code</li>
+<li>To check which version of the complier, go back to the remix page where you got the BYTECODE from and look at the URL, the complier version will be there. In most cases it should be: v0.4.19+commit.c4cbbb05.js</li>
+<li>On Optimisation, choose No (We haven’t enable it before)</li>
+<li>On ENTER THE SOLIDITY CONTRACT CODE BELOW, copy the whole code from Remix, and paste in that area. NOT THE BYTECODE, but the code itself.</li>
+<li>Now, leave the other fields in blank and click on Verify and Publish.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="scuffold.html" class="btn btn-neutral" title="Cryptocurrency Scuffold" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Stefano Ballerini.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

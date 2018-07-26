@@ -52,20 +52,13 @@ Code example
 	     * Internal transfer, only can be called by this contract
 	     */
 	    function _transfer(address _from, address _to, uint _value) internal {
-	        // Prevent transfer to 0x0 address. Use burn() instead
-	        require(_to != 0x0);
-	        // Check if the sender has enough
-	        require(balanceOf[_from] >= _value);
-	        // Check for overflows
-	        require(balanceOf[_to] + _value >= balanceOf[_to]);
-	        // Save this for an assertion in the future
-	        uint previousBalances = balanceOf[_from] + balanceOf[_to];
-	        // Subtract from the sender
-	        balanceOf[_from] -= _value;
-	        // Add the same to the recipient
-	        balanceOf[_to] += _value;
-	        emit Transfer(_from, _to, _value);
-	        // Asserts are used to use static analysis to find bugs in your code. They should never fail
+	        require(_to != 0x0);										// Prevent transfer to 0x0 address. Use burn() instead
+	        require(balanceOf[_from] >= _value);						// Check if the sender has enough	        
+	        require(balanceOf[_to] + _value >= balanceOf[_to]);			// Check for overflows
+	        uint previousBalances = balanceOf[_from] + balanceOf[_to];  // Save this for an assertion in the future	     
+	        balanceOf[_from] -= _value;									// Subtract from the sender
+	        balanceOf[_to] += _value;									// Add the same to the recipient
+	        emit Transfer(_from, _to, _value);							// Asserts are used to use static analysis to find bugs in your code. They should never fail
 	        assert(balanceOf[_from] + balanceOf[_to] == previousBalances);
 	    }
 
@@ -167,6 +160,11 @@ Code example
 	}
 
 
+*function MyToken* has to have the same name as the *contract MyToken*. This is a special, startup function that runs only once and once only when the contract is first uploaded to the network  
+
+
+Transfer function
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: javascript
    :linenos:
@@ -179,20 +177,65 @@ Code example
         balanceOf[msg.sender] -= _value;
         balanceOf[_to] += _value;
     }
-    
 
-*function MyToken* has to have the same name as the *contract MyToken*. This is a special, startup function that runs only once and once only when the contract is first uploaded to the network    
 
 To stop a contract execution mid-execution you can either return or throw The former will cost less gas but it can be more headache as any changes you did to the contract so far will be kept. In the other hand, 'throw' will cancel all contract execution, revert any changes that transaction could have made and the sender will lose all Ether he sent for gas. But since the Wallet can detect that a contract will throw, it always shows an alert, therefore preventing any Ether to be spent at all.    
 
 
+Internal functions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: javascript
+   :linenos:
+
+    /* Internal transfer, can only be called by this contract */
+    function _transfer(address _from, address _to, uint _value) internal {
+        require (_to != 0x0);                               // Prevent transfer to 0x0 address. Use burn() instead
+        require (balanceOf[_from] >= _value);                // Check if the sender has enough
+        require (balanceOf[_to] + _value >= balanceOf[_to]); // Check for overflows
+        require(!frozenAccount[_from]);                     // Check if sender is frozen
+        require(!frozenAccount[_to]);                       // Check if recipient is frozen
+        balanceOf[_from] -= _value;                         // Subtract from the sender
+        balanceOf[_to] += _value;                           // Add the same to the recipient
+        emit Transfer(_from, _to, _value);
+    }
+
+Now all your functions that result in the transfer of coins, can do their own checks and then call transfer with the correct parameters. Notice that this function will move coins from any account to any other, without requiring anyone's permission to do so: that's why it's an internal function, only called by the contract: if you add any function calling it, make sure it properly verifies if the caller should be have permission to move those.
 
 
+Contract Administrator
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Inheritance allows a contract to acquire properties of a parent contract, without having to redefine all of them. This makes the code cleaner and easier to reuse
 
 
+.. code-block:: javascript
+   :linenos:
 
+    contract owned {
+        address public owner;
 
+        function owned() {
+            owner = msg.sender;
+        }
 
+        modifier onlyOwner {
+            require(msg.sender == owner);
+            _;
+        }
+
+        function transferOwnership(address newOwner) onlyOwner {
+            owner = newOwner;
+        }
+    }
+
+This creates a very basic contract that doesn't do anything except define some generic functions about a contract that can be "owned". Now the next step is just to add the text is owned to the contract:
+
+.. code-block:: javascript
+   :linenos:
+
+    contract MyToken is owned {
+        /* the rest of the contract as usual */
 
 
 

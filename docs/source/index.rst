@@ -92,7 +92,7 @@ Creates a mapping between address and unit type which stores the coin balance in
 	minter = msg.sender;
 	}
 
-Constructor function. Executed as soon as the contract is deployed. This sets the value of minter to the address which has deployed the contract. This ensures that only the owner of the contract can mint new coins and nobody else.
+Constructor function. Executed as soon as the contract is deployed. This sets the value of minter to the address which has deployed the contract. This ensures that only the owner of the contract can mint new coins and nobody else. This is ensured by the following function:
 
 
 
@@ -100,7 +100,7 @@ Constructor function. Executed as soon as the contract is deployed. This sets th
 
 	function mint(address receiver, uint amount)
 
-fFunction sending coin value equal to amount to the receiver address.
+Function sending coin value equal to amount to the receiver address.
 
 
 .. code-block:: javascript
@@ -128,7 +128,9 @@ Guide
 ==================
 .. toctree::
    :maxdepth: 1
-
+ 
+   Solidity
    scuffold
+   Test Net
 
 

@@ -79,7 +79,12 @@
             
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Cryptocurrency Scuffold</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#code-example">Code example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-example">Code example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#transfer-function">Transfer function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#internal-functions">Internal functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contract-administrator">Contract Administrator</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -298,14 +303,7 @@
 146
 147
 148
-149
-150
-151
-152
-153
-154
-155
-156</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.16</span><span class="p">;</span>
+149</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.16</span><span class="p">;</span>
 
      <span class="kr">interface</span> <span class="nx">tokenRecipient</span> <span class="p">{</span> <span class="kd">function</span> <span class="nx">receiveApproval</span><span class="p">(</span><span class="nx">address</span> <span class="nx">_from</span><span class="p">,</span> <span class="nx">uint256</span> <span class="nx">_value</span><span class="p">,</span> <span class="nx">address</span> <span class="nx">_token</span><span class="p">,</span> <span class="nx">bytes</span> <span class="nx">_extraData</span><span class="p">)</span> <span class="nx">external</span><span class="p">;</span> <span class="p">}</span>
 
@@ -348,20 +346,13 @@
 <span class="cm">          * Internal transfer, only can be called by this contract</span>
 <span class="cm">          */</span>
          <span class="kd">function</span> <span class="nx">_transfer</span><span class="p">(</span><span class="nx">address</span> <span class="nx">_from</span><span class="p">,</span> <span class="nx">address</span> <span class="nx">_to</span><span class="p">,</span> <span class="nx">uint</span> <span class="nx">_value</span><span class="p">)</span> <span class="nx">internal</span> <span class="p">{</span>
-             <span class="c1">// Prevent transfer to 0x0 address. Use burn() instead</span>
-             <span class="nx">require</span><span class="p">(</span><span class="nx">_to</span> <span class="o">!=</span> <span class="mh">0x0</span><span class="p">);</span>
-             <span class="c1">// Check if the sender has enough</span>
-             <span class="nx">require</span><span class="p">(</span><span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_from</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nx">_value</span><span class="p">);</span>
-             <span class="c1">// Check for overflows</span>
-             <span class="nx">require</span><span class="p">(</span><span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_to</span><span class="p">]</span> <span class="o">+</span> <span class="nx">_value</span> <span class="o">&gt;=</span> <span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_to</span><span class="p">]);</span>
-             <span class="c1">// Save this for an assertion in the future</span>
-             <span class="nx">uint</span> <span class="nx">previousBalances</span> <span class="o">=</span> <span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_from</span><span class="p">]</span> <span class="o">+</span> <span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_to</span><span class="p">];</span>
-             <span class="c1">// Subtract from the sender</span>
-             <span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_from</span><span class="p">]</span> <span class="o">-=</span> <span class="nx">_value</span><span class="p">;</span>
-             <span class="c1">// Add the same to the recipient</span>
-             <span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_to</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">_value</span><span class="p">;</span>
-             <span class="nx">emit</span> <span class="nx">Transfer</span><span class="p">(</span><span class="nx">_from</span><span class="p">,</span> <span class="nx">_to</span><span class="p">,</span> <span class="nx">_value</span><span class="p">);</span>
-             <span class="c1">// Asserts are used to use static analysis to find bugs in your code. They should never fail</span>
+             <span class="nx">require</span><span class="p">(</span><span class="nx">_to</span> <span class="o">!=</span> <span class="mh">0x0</span><span class="p">);</span>                                                                            <span class="c1">// Prevent transfer to 0x0 address. Use burn() instead</span>
+             <span class="nx">require</span><span class="p">(</span><span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_from</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nx">_value</span><span class="p">);</span>                                            <span class="c1">// Check if the sender has enough</span>
+             <span class="nx">require</span><span class="p">(</span><span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_to</span><span class="p">]</span> <span class="o">+</span> <span class="nx">_value</span> <span class="o">&gt;=</span> <span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_to</span><span class="p">]);</span>                     <span class="c1">// Check for overflows</span>
+             <span class="nx">uint</span> <span class="nx">previousBalances</span> <span class="o">=</span> <span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_from</span><span class="p">]</span> <span class="o">+</span> <span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_to</span><span class="p">];</span>  <span class="c1">// Save this for an assertion in the future</span>
+             <span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_from</span><span class="p">]</span> <span class="o">-=</span> <span class="nx">_value</span><span class="p">;</span>                                                                     <span class="c1">// Subtract from the sender</span>
+             <span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_to</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">_value</span><span class="p">;</span>                                                                       <span class="c1">// Add the same to the recipient</span>
+             <span class="nx">emit</span> <span class="nx">Transfer</span><span class="p">(</span><span class="nx">_from</span><span class="p">,</span> <span class="nx">_to</span><span class="p">,</span> <span class="nx">_value</span><span class="p">);</span>                                                      <span class="c1">// Asserts are used to use static analysis to find bugs in your code. They should never fail</span>
              <span class="nx">assert</span><span class="p">(</span><span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_from</span><span class="p">]</span> <span class="o">+</span> <span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_to</span><span class="p">]</span> <span class="o">==</span> <span class="nx">previousBalances</span><span class="p">);</span>
          <span class="p">}</span>
 
@@ -463,6 +454,9 @@
      <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
+<p><em>function MyToken</em> has to have the same name as the <em>contract MyToken</em>. This is a special, startup function that runs only once and once only when the contract is first uploaded to the network</p>
+<div class="section" id="transfer-function">
+<h3>Transfer function<a class="headerlink" href="#transfer-function" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -480,8 +474,78 @@
  <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<p><em>function MyToken</em> has to have the same name as the <em>contract MyToken</em>. This is a special, startup function that runs only once and once only when the contract is first uploaded to the network</p>
 <p>To stop a contract execution mid-execution you can either return or throw The former will cost less gas but it can be more headache as any changes you did to the contract so far will be kept. In the other hand, ‘throw’ will cancel all contract execution, revert any changes that transaction could have made and the sender will lose all Ether he sent for gas. But since the Wallet can detect that a contract will throw, it always shows an alert, therefore preventing any Ether to be spent at all.</p>
+</div>
+<div class="section" id="internal-functions">
+<h3>Internal functions<a class="headerlink" href="#internal-functions" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="cm">/* Internal transfer, can only be called by this contract */</span>
+ <span class="kd">function</span> <span class="nx">_transfer</span><span class="p">(</span><span class="nx">address</span> <span class="nx">_from</span><span class="p">,</span> <span class="nx">address</span> <span class="nx">_to</span><span class="p">,</span> <span class="nx">uint</span> <span class="nx">_value</span><span class="p">)</span> <span class="nx">internal</span> <span class="p">{</span>
+     <span class="nx">require</span> <span class="p">(</span><span class="nx">_to</span> <span class="o">!=</span> <span class="mh">0x0</span><span class="p">);</span>                               <span class="c1">// Prevent transfer to 0x0 address. Use burn() instead</span>
+     <span class="nx">require</span> <span class="p">(</span><span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_from</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nx">_value</span><span class="p">);</span>                <span class="c1">// Check if the sender has enough</span>
+     <span class="nx">require</span> <span class="p">(</span><span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_to</span><span class="p">]</span> <span class="o">+</span> <span class="nx">_value</span> <span class="o">&gt;=</span> <span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_to</span><span class="p">]);</span> <span class="c1">// Check for overflows</span>
+     <span class="nx">require</span><span class="p">(</span><span class="o">!</span><span class="nx">frozenAccount</span><span class="p">[</span><span class="nx">_from</span><span class="p">]);</span>                     <span class="c1">// Check if sender is frozen</span>
+     <span class="nx">require</span><span class="p">(</span><span class="o">!</span><span class="nx">frozenAccount</span><span class="p">[</span><span class="nx">_to</span><span class="p">]);</span>                       <span class="c1">// Check if recipient is frozen</span>
+     <span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_from</span><span class="p">]</span> <span class="o">-=</span> <span class="nx">_value</span><span class="p">;</span>                         <span class="c1">// Subtract from the sender</span>
+     <span class="nx">balanceOf</span><span class="p">[</span><span class="nx">_to</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">_value</span><span class="p">;</span>                           <span class="c1">// Add the same to the recipient</span>
+     <span class="nx">emit</span> <span class="nx">Transfer</span><span class="p">(</span><span class="nx">_from</span><span class="p">,</span> <span class="nx">_to</span><span class="p">,</span> <span class="nx">_value</span><span class="p">);</span>
+ <span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Now all your functions that result in the transfer of coins, can do their own checks and then call transfer with the correct parameters. Notice that this function will move coins from any account to any other, without requiring anyone’s permission to do so: that’s why it’s an internal function, only called by the contract: if you add any function calling it, make sure it properly verifies if the caller should be have permission to move those.</p>
+</div>
+<div class="section" id="contract-administrator">
+<h3>Contract Administrator<a class="headerlink" href="#contract-administrator" title="Permalink to this headline">¶</a></h3>
+<p>Inheritance allows a contract to acquire properties of a parent contract, without having to redefine all of them. This makes the code cleaner and easier to reuse</p>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="nx">contract</span> <span class="nx">owned</span> <span class="p">{</span>
+     <span class="nx">address</span> <span class="kr">public</span> <span class="nx">owner</span><span class="p">;</span>
+
+     <span class="kd">function</span> <span class="nx">owned</span><span class="p">()</span> <span class="p">{</span>
+         <span class="nx">owner</span> <span class="o">=</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">;</span>
+     <span class="p">}</span>
+
+     <span class="nx">modifier</span> <span class="nx">onlyOwner</span> <span class="p">{</span>
+         <span class="nx">require</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span> <span class="o">==</span> <span class="nx">owner</span><span class="p">);</span>
+         <span class="nx">_</span><span class="p">;</span>
+     <span class="p">}</span>
+
+     <span class="kd">function</span> <span class="nx">transferOwnership</span><span class="p">(</span><span class="nx">address</span> <span class="nx">newOwner</span><span class="p">)</span> <span class="nx">onlyOwner</span> <span class="p">{</span>
+         <span class="nx">owner</span> <span class="o">=</span> <span class="nx">newOwner</span><span class="p">;</span>
+     <span class="p">}</span>
+ <span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>This creates a very basic contract that doesn’t do anything except define some generic functions about a contract that can be “owned”. Now the next step is just to add the text is owned to the contract:</p>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="nx">contract</span> <span class="nx">MyToken</span> <span class="nx">is</span> <span class="nx">owned</span> <span class="p">{</span>
+     <span class="cm">/* the rest of the contract as usual */</span>
+</pre></div>
+</td></tr></table></div>
+</div>
 </div>
 </div>
 

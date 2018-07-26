@@ -128,7 +128,9 @@ Guide
 ==================
 .. toctree::
    :maxdepth: 1
-
+ 
+   Solidity
    scuffold
+   Test Net
 
 
