@@ -11,28 +11,32 @@ Open Points
 * What is the total supply?
 * How much do we want to raise? min cap? max cap?
 
-* Which currencies are we accepting for the ICO?
+* Which currencies are we accepting for the ICO? (BTC, ETH, anything else?)
+* will be the KYC available for the pre-registration process to the ICO?
 * Are tokens accessible immediately after transaction or only after the ICO end?
 * If the goal is not met, does the ICO continues until the payments reach the min cap?
-* what is the ICO bonus scheme for early buyers?
+* What % of allocation is distributed in the pre-sale in relation to the % sold in the crowdsale?
+* what happens if the pre-sale target is not reached?
+* What is the ICO bonus scheme for early buyers?
 * Are raised funds returned if the goal is not met?
 * What is the founders initial token supply?
+* Allocation — What % are given to team, investors, partners, reserving for the ecosystem, reserving for the company/foundation?
+* Where will the money that you raise go to? have an annual budget for the next 5 years.
+* Does a bouty program exists? if so, how is it structured?
 * Are funds raised during the ICO released during some vesting periods or under particular circumstances?
 * Is raised ether stored in the contract or transferred immediately to some wallet (the difference is in the gas costs, accessibility of the funds and the security if you choose to store them on some particular hardware or multisignature wallet).
+* Are we geo-fencing? (excluding specific countries from participating — both US and Chinese investors)
+* are we allowing funds/institutional investors to invest or only individuals?
+* Are we 100% sure the token is not a security? do we have a official legal due diligence from ICO advisor?
 
 
 
 
-Pre-planning
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Answers
+=====================================
 * What is the purpose of the token?
 To increase the exchange adoption and robustness, Infinity Trade Coin ``8TC`` holders will have the possibility to claim ``x%`` of the total platform trading commissions, just by holding 8TC in their accounts. The award is calculated daily, based on to the 8TC holdings in user's account at 0:00 (UTC+1) and then claimed by the users.
 
-
-
-
-Planning
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 * What do we need this money for? road map?
 
 	2017
@@ -51,8 +55,8 @@ Planning
 
 	Q4
 
-	* 09.18 Start ICO
-	* 10.18 end ICO
+	* 10.18 Start ICO
+	* 11.18 end ICO
 	* in platform smart contracts
 
 
@@ -96,30 +100,47 @@ Planning
 Requirements
 =====================================
 
+#. It's Necessary to building a specific reservation contract for the pre-sale to reserve a specific amount of allocation for each of the pre-sale buyers and being transparent about who participated and at what price.
 #. Raised ether is going to be transferred to a specific wallet after each payment,
 
 
 
 
 
-The offering 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Whitepaper
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Token design 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Legal
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-precautions against hacking
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Communication 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 (website, slack, social, press, interviews, etc)
+
+
+* Website
+
+	* Landing page for the crowdsale
+	* Whitepaper
+	* Team
+	* Advisors
+	* Previous investors
+	* Roadmap
+	* Token allocation
+	* Links to social accounts
+	* Translations
+
+* Internal communication channel (Slack, Rocket Chat, Riot, etc)
+	
+	* Need to have a main communication channel and the team needs to be active there.
+	* Full-time community manager to moderate the communication channel
+	* Need to setup the channels properly and moderate heavily
+
+* BitcoinTalk
+	
+	* Create a bitcointalk announcement of the token.
+
+* Reddit
+
+	* Own your own subreddit, brand it, and put in a few posts.
+
+* Newsletter
+	
+	* Setup a newsletter on your website.		
 
 
 
