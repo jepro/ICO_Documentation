@@ -17,6 +17,9 @@ Tools for writing and deploying smart contracts
 
 `ETHFiddle <https://ethfiddle.com/#/>`_  - Share you Solidity Script
 
+`ETHFiddle <https://zeppelinsolutions.github.io/zeppelin.solutions/security-audits/>`_ - Framework to audit smart contract code
+
+
 
 
 External Documentation
@@ -128,7 +131,8 @@ Guide
 ==================
 .. toctree::
    :maxdepth: 1
- 
+	
+   ICO	 
    Solidity
    scuffold
    Test Net

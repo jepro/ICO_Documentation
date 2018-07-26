@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Solidity" href="Solidity.html" /> 
+    <link rel="next" title="ICO" href="ICO.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -78,6 +78,7 @@
             
             
               <ul>
+<li class="toctree-l1"><a class="reference internal" href="ICO.html">ICO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Solidity.html">Solidity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scuffold.html">Cryptocurrency Scuffold</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Test Net.html">Test Net (Ropsten Network)</a></li>
@@ -155,6 +156,7 @@
 <p><a class="reference external" href="https://metamask.io">Metamask</a> – It allows to run Ethereum dApps right in the browser without running a full Ethereum node. It is a browser plugin that allows users to make Ethereum transactions through regular websites.</p>
 <p><a class="reference external" href="https://remix.ethereum.org/#optimize=false&amp;version=soljson-v0.4.24+commit.e67f0147.js">Remix</a> – Web IDE to write, deploy and run Solidity smart contracts</p>
 <p><a class="reference external" href="https://ethfiddle.com/#/">ETHFiddle</a>  - Share you Solidity Script</p>
+<p><a class="reference external" href="https://zeppelinsolutions.github.io/zeppelin.solutions/security-audits/">ETHFiddle</a> - Framework to audit smart contract code</p>
 </div>
 <div class="section" id="external-documentation">
 <h2>External Documentation<a class="headerlink" href="#external-documentation" title="Permalink to this headline">¶</a></h2>
@@ -238,11 +240,11 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Constructor function. Executed as soon as the contract is deployed. This sets the value of minter to the address which has deployed the contract. This ensures that only the owner of the contract can mint new coins and nobody else.</p>
+<p>Constructor function. Executed as soon as the contract is deployed. This sets the value of minter to the address which has deployed the contract. This ensures that only the owner of the contract can mint new coins and nobody else. This is ensured by the following function:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">mint</span><span class="p">(</span><span class="nx">address</span> <span class="nx">receiver</span><span class="p">,</span> <span class="nx">uint</span> <span class="nx">amount</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>fFunction sending coin value equal to amount to the receiver address.</p>
+<p>Function sending coin value equal to amount to the receiver address.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">send</span><span class="p">(</span><span class="nx">address</span> <span class="nx">receiver</span><span class="p">,</span> <span class="nx">uint</span> <span class="nx">amount</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -258,6 +260,7 @@
 <h1>Guide<a class="headerlink" href="#guide" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="ICO.html">ICO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Solidity.html">Solidity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scuffold.html">Cryptocurrency Scuffold</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Test Net.html">Test Net (Ropsten Network)</a></li>
@@ -273,7 +276,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Solidity.html" class="btn btn-neutral float-right" title="Solidity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ICO.html" class="btn btn-neutral float-right" title="ICO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>

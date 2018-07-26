@@ -78,6 +78,23 @@ Subcurrency Example
 
 The line event ``Sent(address from, address to, uint amount);`` declares a so-called “event” which is emitted in the last line of the function ``send``. User interfaces (as well as server applications of course) can listen for those events being emitted on the blockchain without much cost. As soon as it is emitted, the listener will also receive the arguments ``from``, ``to`` and ``amount``, which makes it easy to track transactions
 
+In order to listen for this event, you would use
+
+
+.. code-block:: javascript
+   :linenos:
+   
+	Coin.Sent().watch({}, '', function(error, result) {
+	    if (!error) {
+	        console.log("Coin transfer: " + result.args.amount +
+	            " coins were sent from " + result.args.from +
+	            " to " + result.args.to + ".");
+	        console.log("Balances now:\n" +
+	            "Sender: " + Coin.balances.call(result.args.from) +
+	            "Receiver: " + Coin.balances.call(result.args.to));
+	    }
+	})
+
 
 
 

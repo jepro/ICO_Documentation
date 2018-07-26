@@ -29,7 +29,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Cryptocurrency Scuffold" href="scuffold.html" />
-    <link rel="prev" title="INFINITY TRADE COIN ICO Documentation" href="index.html" /> 
+    <link rel="prev" title="ICO" href="ICO.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -79,12 +79,14 @@
             
             
               <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ICO.html">ICO</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Solidity</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#basic-example">Basic Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#subcurrency-example">Subcurrency Example</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="scuffold.html">Cryptocurrency Scuffold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Test Net.html">Test Net (Ropsten Network)</a></li>
 </ul>
 
             
@@ -251,6 +253,28 @@
 </pre></div>
 </td></tr></table></div>
 <p>The line event <code class="docutils literal notranslate"><span class="pre">Sent(address</span> <span class="pre">from,</span> <span class="pre">address</span> <span class="pre">to,</span> <span class="pre">uint</span> <span class="pre">amount);</span></code> declares a so-called “event” which is emitted in the last line of the function <code class="docutils literal notranslate"><span class="pre">send</span></code>. User interfaces (as well as server applications of course) can listen for those events being emitted on the blockchain without much cost. As soon as it is emitted, the listener will also receive the arguments <code class="docutils literal notranslate"><span class="pre">from</span></code>, <code class="docutils literal notranslate"><span class="pre">to</span></code> and <code class="docutils literal notranslate"><span class="pre">amount</span></code>, which makes it easy to track transactions</p>
+<p>In order to listen for this event, you would use</p>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="nx">Coin</span><span class="p">.</span><span class="nx">Sent</span><span class="p">().</span><span class="nx">watch</span><span class="p">({},</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+         <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Coin transfer: &quot;</span> <span class="o">+</span> <span class="nx">result</span><span class="p">.</span><span class="nx">args</span><span class="p">.</span><span class="nx">amount</span> <span class="o">+</span>
+                 <span class="s2">&quot; coins were sent from &quot;</span> <span class="o">+</span> <span class="nx">result</span><span class="p">.</span><span class="nx">args</span><span class="p">.</span><span class="nx">from</span> <span class="o">+</span>
+                 <span class="s2">&quot; to &quot;</span> <span class="o">+</span> <span class="nx">result</span><span class="p">.</span><span class="nx">args</span><span class="p">.</span><span class="nx">to</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">);</span>
+             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Balances now:\n&quot;</span> <span class="o">+</span>
+                 <span class="s2">&quot;Sender: &quot;</span> <span class="o">+</span> <span class="nx">Coin</span><span class="p">.</span><span class="nx">balances</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">args</span><span class="p">.</span><span class="nx">from</span><span class="p">)</span> <span class="o">+</span>
+                 <span class="s2">&quot;Receiver: &quot;</span> <span class="o">+</span> <span class="nx">Coin</span><span class="p">.</span><span class="nx">balances</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">args</span><span class="p">.</span><span class="nx">to</span><span class="p">));</span>
+         <span class="p">}</span>
+     <span class="p">})</span>
+</pre></div>
+</td></tr></table></div>
 </div>
 </div>
 
@@ -265,7 +289,7 @@
         <a href="scuffold.html" class="btn btn-neutral float-right" title="Cryptocurrency Scuffold" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="INFINITY TRADE COIN ICO Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ICO.html" class="btn btn-neutral" title="ICO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
