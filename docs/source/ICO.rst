@@ -8,28 +8,43 @@ Open Points
 
 
 
-* What is the total supply?
+* What is the total supply? Enrico me la manda entro giovendì.
 * How much do we want to raise? min cap? max cap?
 
 * Which currencies are we accepting for the ICO? (BTC, ETH, anything else?)
+	Fiat, BTC e ETH
 * will be the KYC available for the pre-registration process to the ICO?
+	Si
 * Are tokens accessible immediately after transaction or only after the ICO end?
+	Si purchè sia sopra il soft cap
+	8ITC a fine ICO
 * If the goal is not met, does the ICO continues until the payments reach the min cap?
+	? Chiedere a Carlo
 * What % of allocation is distributed in the pre-sale in relation to the % sold in the crowdsale?
-* what happens if the pre-sale target is not reached?
+* what happens if the private-sale target is not reached?
+	Si fa comunque ICO
 * What is the ICO bonus scheme for early buyers?
+	Si
 * Are raised funds returned if the goal is not met?
+        Solo ai sottoscrittore dell'ICO
 * What is the founders initial token supply?
 * Allocation — What % are given to team, investors, partners, reserving for the ecosystem, reserving for the company/foundation?
+	Entro Giovedì ci pensa enrico
 * Where will the money that you raise go to? have an annual budget for the next 5 years.
+	Si per i prossimi 3
 * Does a bouty program exists? if so, how is it structured?
+	Da stabilire con esperto
 * Are funds raised during the ICO released during some vesting periods or under particular circumstances?
 * Is raised ether stored in the contract or transferred immediately to some wallet (the difference is in the gas costs, accessibility of the funds and the security if you choose to store them on some particular hardware or multisignature wallet).
+     Tecnicality
 * Are we geo-fencing? (excluding specific countries from participating — both US and Chinese investors)
+     USA e Cina
 * are we allowing funds/institutional investors to invest or only individuals?
+    both
 * Are we 100% sure the token is not a security? do we have a official legal due diligence from ICO advisor?
+    Lo sapremo entro settembre
 * How are performded security audit on the smart contract? 
-
+    Ramilli
 
 
 
